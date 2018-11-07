@@ -7,8 +7,15 @@ public class Weapon : MonoBehaviour {
     public GameObject bulletPrefab;
     public Transform bulletSpawn;
     public float fireTime = 0.5f;
-
+    public Animator playerAnimator;
     private bool isFiring = false;
+
+
+    private void Start()
+    {
+        playerAnimator = GetComponent<Animator>();
+        
+    }
 
     private void setFiring()
     {

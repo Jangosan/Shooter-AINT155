@@ -25,6 +25,9 @@ GameObject:
   - component: {fileID: 114122586526857044}
   - component: {fileID: 114924484136389092}
   - component: {fileID: 114453890810983940}
+  - component: {fileID: 114236084194097674}
+  - component: {fileID: 114673894975914514}
+  - component: {fileID: 114106929727995378}
   m_Layer: 9
   m_Name: Zombie
   m_TagString: Untagged
@@ -39,7 +42,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1511142864819148}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.33, y: -2.49, z: 0}
+  m_LocalPosition: {x: -14.708463, y: -0.22821355, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -54,12 +57,51 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.013859272, y: -0.57746124}
   serializedVersion: 2
   m_Radius: 0.50389147
+--- !u!114 &114106929727995378
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1511142864819148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f06c6b4d3e9fe454a9322f032619b9a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  onSpawn:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 114924484136389092}
+        m_MethodName: SetTarget
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 114453890810983940}
+        m_MethodName: SetTarget
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: EnemySpawnedEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
 --- !u!114 &114122586526857044
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -71,6 +113,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a2d9f09567c9ff4e9101bee1721bdca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114236084194097674
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1511142864819148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e88e2825ad675944b32aa64467fad85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabToSpawn: {fileID: 1175813440922450, guid: da6f302bc6e6a644bb9f99ccc79db898,
+    type: 2}
+  adjustmentAngle: -90
 --- !u!114 &114453890810983940
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -85,6 +141,18 @@ MonoBehaviour:
   target: {fileID: 0}
   smoothing: 5
   adjustmentAngle: -90
+--- !u!114 &114673894975914514
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1511142864819148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47ebe28fde62772488c383b89acf8c28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
 --- !u!114 &114924484136389092
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -96,7 +164,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc0e17d969a62fd43b1782ec4146f0dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
   speed: 5
 --- !u!114 &114988739471790680
 MonoBehaviour:
@@ -115,6 +182,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 114122586526857044}
         m_MethodName: Die
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 114236084194097674}
+        m_MethodName: spawnObject
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

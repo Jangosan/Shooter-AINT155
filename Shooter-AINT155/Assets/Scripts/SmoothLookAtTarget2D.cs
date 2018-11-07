@@ -8,6 +8,13 @@ public class SmoothLookAtTarget2D : MonoBehaviour {
     public float smoothing = 5.0f;
     public float adjustmentAngle = 0.0f;
 
+
+    public void SetTarget(Transform newTarget)
+    {
+
+        target = newTarget;
+    }
+
     private void Update()
     {
         if (target != null)

@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class MoveTowardsObject : MonoBehaviour {
 
-    public Transform target;
+    private Transform target;
+    
     public float speed = 5.0f;
 
+
+    
     private void Update()
     {
         if (target != null)
@@ -14,5 +17,12 @@ public class MoveTowardsObject : MonoBehaviour {
             transform.position = Vector3.MoveTowards(transform.position, target.position, speed * 0.01f);
         }
     }
+
+    public void SetTarget(Transform newTarget)
+    {
+
+        target = newTarget;
+    }
+
 
 }
